@@ -76,7 +76,7 @@ env.Append(
         "-Wl,--undefined=uxTopUsedPriority",
         "-Wl,--gc-sections",
         "-Wl,-EL",
-        "-T", "esp32.common.ld",
+        "-T", "esp32.project.ld",
         "-T", "esp32.rom.ld",
         "-T", "esp32.peripherals.ld",
         "-T", "esp32.rom.libgcc.ld",
@@ -108,6 +108,7 @@ env.Append(
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "coap"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "console"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "driver"),
+        join(FRAMEWORK_DIR, "tools", "sdk", "include", "efuse"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp-tls"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp32"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp_adc_cal"),
@@ -115,7 +116,9 @@ env.Append(
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp_http_client"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp_http_server"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp_https_ota"),
+        join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp_https_server"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "esp_ringbuf"),
+        join(FRAMEWORK_DIR, "tools", "sdk", "include", "espcoredump"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "ethernet"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "expat"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "fatfs"),
@@ -134,6 +137,7 @@ env.Append(
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "mqtt"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "newlib"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "nghttp"),
+        join(FRAMEWORK_DIR, "tools", "sdk", "include", "nimble"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "nvs_flash"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "openssl"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "protobuf-c"),
@@ -147,6 +151,7 @@ env.Append(
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "tcp_transport"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "tcpip_adapter"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "ulp"),
+        join(FRAMEWORK_DIR, "tools", "sdk", "include", "unity"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "vfs"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "wear_levelling"),
         join(FRAMEWORK_DIR, "tools", "sdk", "include", "wifi_provisioning"),
@@ -165,7 +170,7 @@ env.Append(
     ],
 
     LIBS=[
-        "-lgcc", "-lopenssl", "-lbtdm_app", "-lfatfs", "-lwps", "-lcoexist", "-lwear_levelling", "-lesp_http_client", "-lprotobuf-c", "-lhal", "-lnewlib", "-ldriver", "-lbootloader_support", "-lpp", "-lfreemodbus", "-lmesh", "-lsmartconfig", "-ljsmn", "-lwpa", "-lethernet", "-lphy", "-lapp_trace", "-lconsole", "-lulp", "-lwpa_supplicant", "-lfreertos", "-lbt", "-lmicro-ecc", "-lesp32-camera", "-lcxx", "-lxtensa-debug-module", "-ltcp_transport", "-lmdns", "-lvfs", "-lesp_ringbuf", "-lsoc", "-lcore", "-lfb_gfx", "-lsdmmc", "-llibsodium", "-lcoap", "-ltcpip_adapter", "-lprotocomm", "-lesp_event", "-limage_util", "-lc_nano", "-lesp-tls", "-lasio", "-lrtc", "-lspi_flash", "-lwpa2", "-lwifi_provisioning", "-lesp32", "-lface_recognition", "-lapp_update", "-lnghttp", "-lspiffs", "-lface_detection", "-lespnow", "-lnvs_flash", "-lesp_adc_cal", "-llog", "-ldl_lib", "-lsmartconfig_ack", "-lexpat", "-lm", "-lfr", "-lmqtt", "-lc", "-lheap", "-lmbedtls", "-llwip", "-lnet80211", "-lesp_http_server", "-lpthread", "-ljson", "-lesp_https_ota", "-lfd", "-lstdc++"
+        "-lgcc", "-lapp_trace", "-lapp_update", "-lasio", "-lbootloader_support", "-lbt", "-lbtdm_app", "-lc", "-lcoap", "-lcoexist", "-lconsole", "-lcore", "-lcxx", "-lc_nano", "-ldl_lib", "-ldriver", "-lefuse", "-lesp-tls", "-lesp32-camera", "-lesp32", "-lespcoredump", "-lespnow", "-lesp_adc_cal", "-lesp_event", "-lesp_https_ota", "-lesp_https_server", "-lesp_http_client", "-lesp_http_server", "-lesp_ringbuf", "-lethernet", "-lexpat", "-lface_detection", "-lface_recognition", "-lfatfs", "-lfb_gfx", "-lfd", "-lfr", "-lfreemodbus", "-lfreertos", "-lhal", "-lheap", "-limage_util", "-ljsmn", "-ljson", "-llibsodium", "-llog", "-llwip", "-lm", "-lmbedtls", "-lmdns", "-lmesh", "-lmicro-ecc", "-lmqtt", "-lnet80211", "-lnewlib", "-lnghttp", "-lnvs_flash", "-lod", "-lopenssl", "-lphy", "-lpp", "-lprotobuf-c", "-lprotocomm", "-lpthread", "-lrtc", "-lsdmmc", "-lsmartconfig", "-lsmartconfig_ack", "-lsoc", "-lspiffs", "-lspi_flash", "-ltcpip_adapter", "-ltcp_transport", "-lulp", "-lunity", "-lvfs", "-lwear_levelling", "-lwifi_provisioning", "-lwpa", "-lwpa2", "-lwpa_supplicant", "-lwps", "-lxtensa-debug-module", "-lstdc++"
     ],
 
     LIBSOURCE_DIRS=[
